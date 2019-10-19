@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Flexbox from 'flexbox-react';
-import 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 
 const styles = {
   card:{width: "18rem"} 
@@ -24,21 +24,25 @@ function Cards(){
   )
 }
 function Navigation (){
-  const styles = {width: "50em",
-    padding: 0,
-  };
   return(
     <div>
-      <NavBar>
-      <Navbar.Brand href="#home">Home</Navbar.Brand>
-      </NavBar>
+  <Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">De Anza Housing</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#link">Link</Nav.Link>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
     </div>
   )
 }
 function App() {
   return (
     <div>
-      <NavBar/>
+      <Navigation/>
       <Cards/>
       <Cards/>
     </div>
