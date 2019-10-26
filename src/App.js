@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Flexbox from 'flexbox-react';
@@ -15,12 +15,25 @@ import {
 const styles = {
   card:{width: "18rem"} 
 }
+function Listing(){
+  return(
+    <div>
+    Addresss<input type = "text"/>
+    Price<input type = "text"/>
+    accomodation<input type = "text"/>
+    description<input type = "text"/>
+    images<input type = "file"/>
 
+    </div>
+  )
+
+}
 function SignIn(){
   return(
   <div>
       Username:<input type = "text"/>
       Password: <input type = "password"/>
+      <button>Submit</button>
 
   </div>
   )
@@ -50,16 +63,26 @@ function Navigation (){
 
       <Router>
       <Link to ="/"><Nav.Link href="#home" >Home</Nav.Link></Link>
-      <Link to = "/Link"><Nav.Link href="#link">Link</Nav.Link></Link> 
+
+      <Link to = "/listing"><Button variant = "primary">Add Listing</Button></Link> 
+
       <Link to = "/Sign-In"><Nav.Link href="#Sign In">Sign In</Nav.Link></Link>
+
+
+
 
       <Switch>
           <Route path="/Sign-In">
             <SignIn />
           </Route>
 
+          <Route path = "/listing">
+            <Listing/>
+          </Route>
+
       </Switch>
       </Router>
+      
     </Nav>
   </Navbar.Collapse>
 </Navbar>
