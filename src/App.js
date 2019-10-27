@@ -13,20 +13,21 @@ import {
 } from "react-router-dom";
 
 const styles = {
-  card:{width: "18rem"} 
+  card:{width: "30%"},
+  listing:{margin: "10%",backgroundColor: "green"} 
 }
-function Listing(){
-  return(
-    <div>
-    Addresss<input type = "text"/>
-    Price<input type = "text"/>
-    accomodation<input type = "text"/>
-    description<input type = "text"/>
-    images<input type = "file"/>
 
+function Listing(){
+  
+  return(
+    <div className = "listing" style = {styles.listing}>
+      Addresss<input type = "text"/>
+      Price<input type = "text"/>
+      accomodation<input type = "text"/>
+      description<input type = "text"/>
+      images<input type = "file"/>
     </div>
   )
-
 }
 function SignIn(){
   return(
@@ -38,6 +39,7 @@ function SignIn(){
   </div>
   )
 }
+
 function Cards(){
   return (
     <div className="card" style = {styles.card}>
@@ -60,39 +62,29 @@ function Navigation (){
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-
-      <Router>
-      <Link to ="/"><Nav.Link href="#home" >Home</Nav.Link></Link>
-
-      <Link to = "/listing"><Button variant = "primary">Add Listing</Button></Link> 
-
-      <Link to = "/Sign-In"><Nav.Link href="#Sign In">Sign In</Nav.Link></Link>
-
-
-
-
-      <Switch>
-          <Route path="/Sign-In">
-            <SignIn />
-          </Route>
-
-          <Route path = "/listing">
-            <Listing/>
-          </Route>
-
-      </Switch>
-      </Router>
+    <Link to = "/"><Nav.Link href="#home">Home</Nav.Link></Link>
+    <Link to ="/listing"><Button variant = "primary">Add Listing</Button></Link>
+    <Link to ="/SignIn"><Nav.Link href="#Sign In">Sign In</Nav.Link></Link>
       
-    </Nav>
+    </Nav>t
   </Navbar.Collapse>
-</Navbar>
+  </Navbar>
     </div>
+  )
+}
+function Routing(){
+  return (
+  <Router>
+    <Navigation/>
+    <Route path = "/listing" component = {Listing}/>
+    <Route path = "/SignIn" component = {SignIn}/>
+  </Router>
   )
 }
 function App() {
   return (
     <div>
-      <Navigation/>
+      <Routing/>
       <Cards/>
     </div>
 
